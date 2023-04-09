@@ -1,12 +1,21 @@
 package dev.studentform.student.modal;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "studentmain")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Document(collection = "new")
 
 public class Student {
 
+    @Transient
+    public static final String SEQUENCE_NAME = "user_sequence";
     @Id
     private String id;
     private String name;
@@ -18,53 +27,7 @@ public class Student {
 
     private String genderSelected;
 
-    public void setId(String l) {
-        this.id = l;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setDob(String dob) {
-        this.dob = dob;
-    }
-
-    public void setClassSelected(String classSelected) {
-        this.classSelected = classSelected;
-    }
-
-    public void setDivisionSelected(String divisionSelected) {
-        this.divisionSelected = divisionSelected;
-    }
-
-    public void setGenderSelected(String genderSelected) {
-        this.genderSelected = genderSelected;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getDob() {
-        return dob;
-    }
-
-    public String getClassSelected() {
-        return classSelected;
-    }
-
-    public String getDivisionSelected() {
-        return divisionSelected;
-    }
-
-    public String getGenderSelected() {
-        return genderSelected;
-    }
 }
 
 
